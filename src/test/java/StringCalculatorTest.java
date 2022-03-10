@@ -51,4 +51,14 @@ public class StringCalculatorTest {
         int result = calculator.add("1,2.3..3");
         Assert.assertEquals(3, result);
     }
+
+    /*
+     * Test case to validate Add method with N numbers
+     */
+    @Test
+    public void testCalculatorMethodWithMoreNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("10,20,30,50");
+        Assert.assertEquals(110, result);
+    }
 }
