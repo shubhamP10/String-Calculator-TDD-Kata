@@ -41,4 +41,14 @@ public class StringCalculatorTest {
         int result = calculator.add("1,2");
         Assert.assertEquals(3, result);
     }
+
+    /*
+     * Test case to validate Add method with invalid input
+     */
+    @Test(expected = NumberFormatException.class)
+    public void testCalculatorMethodWithInvalidInput() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("1,2.3..3");
+        Assert.assertEquals(3, result);
+    }
 }
