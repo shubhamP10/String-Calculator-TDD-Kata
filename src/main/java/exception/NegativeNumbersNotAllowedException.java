@@ -1,7 +1,7 @@
 package exception;
 
 public class NegativeNumbersNotAllowedException extends RuntimeException {
-    public NegativeNumbersNotAllowedException() {
-        super("Negative Numbers not Allowed");
+    public NegativeNumbersNotAllowedException(StringBuilder negatives) {
+        super("Negative Numbers not Allowed: "+ negatives);
     }
 }

@@ -80,4 +80,13 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         calculator.add("//;10;20;-30\n50");
     }
+
+    /*
+     * Test case to validate With More Negative Numbers
+     */
+    @Test(expected = NegativeNumbersNotAllowedException.class)
+    public void testCalculatorMethodWithMoreNegativeNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        calculator.add("//;10;20;-30\n-50,-100;-200");
+    }
 }

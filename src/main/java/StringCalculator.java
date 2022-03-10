@@ -16,10 +16,18 @@ public class StringCalculator {
             }
 
             String[] numbersArray = numbers.split(",|\\\n|"+delimiter);
+            StringBuilder negatives = new StringBuilder(" ");
+
+            if(numbers.contains("-")){
+                for (String number : numbersArray) {
+                    if (number.startsWith("-")) {
+                        negatives.append(" "+number);
+                    }
+                }
+                throw new NegativeNumbersNotAllowedException(negatives);
+            }
 
             for (String number : numbersArray) {
-                if (number.startsWith("-"))
-                    throw new NegativeNumbersNotAllowedException();
                 result += Integer.parseInt(number);
             }
         }
