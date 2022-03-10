@@ -31,4 +31,14 @@ public class StringCalculatorTest {
         int result = calculator.add("1");
         Assert.assertEquals(1, result);
     }
+
+    /*
+     * Test case to validate Add method with 2 numbers
+     */
+    @Test
+    public void testCalculatorMethodWithTwoNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("1,2");
+        Assert.assertEquals(3, result);
+    }
 }
