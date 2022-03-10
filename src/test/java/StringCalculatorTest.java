@@ -11,4 +11,11 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         Assert.assertNotNull(calculator);
     }
+
+    @Test
+    public void testCalculatorMethodWithEmptyString() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("");
+        Assert.assertEquals(0, result);
+    }
 }
