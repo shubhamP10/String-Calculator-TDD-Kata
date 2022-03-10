@@ -1,3 +1,5 @@
+import exception.NegativeNumbersNotAllowedException;
+
 public class StringCalculator {
     public int add(String numbers) {
         int result = 0;
@@ -16,6 +18,8 @@ public class StringCalculator {
             String[] numbersArray = numbers.split(",|\\\n|"+delimiter);
 
             for (String number : numbersArray) {
+                if (number.startsWith("-"))
+                    throw new NegativeNumbersNotAllowedException();
                 result += Integer.parseInt(number);
             }
         }

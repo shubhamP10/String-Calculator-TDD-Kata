@@ -1,3 +1,4 @@
+import exception.NegativeNumbersNotAllowedException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -48,8 +49,7 @@ public class StringCalculatorTest {
     @Test(expected = NumberFormatException.class)
     public void testCalculatorMethodWithInvalidInput() {
         StringCalculator calculator = new StringCalculator();
-        int result = calculator.add("1,2.3..3");
-        Assert.assertEquals(3, result);
+        calculator.add("1,2.3..3");
     }
 
     /*
@@ -70,5 +70,14 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         int result = calculator.add("//;10;20;30\n50");
         Assert.assertEquals(110, result);
+    }
+
+    /*
+     * Test case to validate With Negative Numbers
+     */
+    @Test(expected = NegativeNumbersNotAllowedException.class)
+    public void testCalculatorMethodWithNegativeNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        calculator.add("//;10;20;-30\n50");
     }
 }
