@@ -61,4 +61,14 @@ public class StringCalculatorTest {
         int result = calculator.add("10,20,30,50");
         Assert.assertEquals(110, result);
     }
+
+    /*
+     * Test case to validate Add method with N numbers with new lines between numbers
+     */
+    @Test
+    public void testCalculatorMethodWithNewLinesBetweenNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.add("10,20,30\n50");
+        Assert.assertEquals(110, result);
+    }
 }
