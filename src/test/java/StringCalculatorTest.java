@@ -63,12 +63,12 @@ public class StringCalculatorTest {
     }
 
     /*
-     * Test case to validate Add method with N numbers with new lines between numbers
+     * Test case to validate Add method with custom delimiter
      */
     @Test
-    public void testCalculatorMethodWithNewLinesBetweenNumbers() {
+    public void testCalculatorMethodWithCustomDelimiter() {
         StringCalculator calculator = new StringCalculator();
-        int result = calculator.add("10,20,30\n50");
+        int result = calculator.add("//;10;20;30\n50");
         Assert.assertEquals(110, result);
     }
 }
