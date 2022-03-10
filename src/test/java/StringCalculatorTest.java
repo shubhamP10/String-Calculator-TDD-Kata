@@ -1,8 +1,15 @@
 import exception.NegativeNumbersNotAllowedException;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class StringCalculatorTest {
+
+    private StringCalculator calculator;
+    @Before
+    public void setUp() throws Exception {
+        calculator = new StringCalculator();
+    }
 
     /*
     * Test case to validate object creation
@@ -18,9 +25,7 @@ public class StringCalculatorTest {
      */
     @Test
     public void testCalculatorMethodWithEmptyString() {
-        StringCalculator calculator = new StringCalculator();
-        int result = calculator.add("");
-        Assert.assertEquals(0, result);
+        Assert.assertEquals(0, calculator.add(""));
     }
 
     /*
@@ -28,9 +33,7 @@ public class StringCalculatorTest {
      */
     @Test
     public void testCalculatorMethodWithOneNumber() {
-        StringCalculator calculator = new StringCalculator();
-        int result = calculator.add("1");
-        Assert.assertEquals(1, result);
+        Assert.assertEquals(1, calculator.add("1"));
     }
 
     /*
@@ -38,9 +41,7 @@ public class StringCalculatorTest {
      */
     @Test
     public void testCalculatorMethodWithTwoNumbers() {
-        StringCalculator calculator = new StringCalculator();
-        int result = calculator.add("1,2");
-        Assert.assertEquals(3, result);
+        Assert.assertEquals(3, calculator.add("1,2"));
     }
 
     /*
@@ -48,7 +49,6 @@ public class StringCalculatorTest {
      */
     @Test(expected = NumberFormatException.class)
     public void testCalculatorMethodWithInvalidInput() {
-        StringCalculator calculator = new StringCalculator();
         calculator.add("1,2.3..3");
     }
 
@@ -57,9 +57,7 @@ public class StringCalculatorTest {
      */
     @Test
     public void testCalculatorMethodWithMoreNumbers() {
-        StringCalculator calculator = new StringCalculator();
-        int result = calculator.add("10,20,30,50");
-        Assert.assertEquals(110, result);
+        Assert.assertEquals(110, calculator.add("10,20,30,50"));
     }
 
     /*
@@ -67,9 +65,7 @@ public class StringCalculatorTest {
      */
     @Test
     public void testCalculatorMethodWithCustomDelimiter() {
-        StringCalculator calculator = new StringCalculator();
-        int result = calculator.add("//;10;20;30\n50");
-        Assert.assertEquals(110, result);
+        Assert.assertEquals(110, calculator.add("//;10;20;30\n50"));
     }
 
     /*
@@ -77,7 +73,6 @@ public class StringCalculatorTest {
      */
     @Test(expected = NegativeNumbersNotAllowedException.class)
     public void testCalculatorMethodWithNegativeNumbers() {
-        StringCalculator calculator = new StringCalculator();
         calculator.add("//;10;20;-30\n50");
     }
 
@@ -86,7 +81,6 @@ public class StringCalculatorTest {
      */
     @Test(expected = NegativeNumbersNotAllowedException.class)
     public void testCalculatorMethodWithMoreNegativeNumbers() {
-        StringCalculator calculator = new StringCalculator();
         calculator.add("//;10;20;-30\n-50,-100;-200");
     }
 }
